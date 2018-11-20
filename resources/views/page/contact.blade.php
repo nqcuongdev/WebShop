@@ -56,20 +56,23 @@
             </div>
         </form>
         </div>
-        <div class="col-md-5 ml-auto">
-        <div class="p-4 border mb-3">
-            <span class="d-block text-primary h6 text-uppercase">New York</span>
-            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-        </div>
-        <div class="p-4 border mb-3">
-            <span class="d-block text-primary h6 text-uppercase">London</span>
-            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-        </div>
-        <div class="p-4 border mb-3">
-            <span class="d-block text-primary h6 text-uppercase">Canada</span>
-            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-        </div>
-
+        <div class="col-md-5 ml-auto border mapouter">
+            <div class="gmap_canvas">
+                <iframe width="475" height="670" id="gmap_canvas" src="https://maps.google.com/maps?q=Khoa%20C%C3%B4ng%20Ngh%E1%BB%87%20Th%C3%B4ng%20Tin%20v%C3%A0%20Truy%E1%BB%81n%20Th%C3%B4ng&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+            <style>
+                .mapouter{
+                    text-align:right;
+                    height:670px;
+                    width:475px;
+                }
+                .gmap_canvas{
+                    overflow:hidden;
+                    background:none!important;
+                    height:670px;
+                    width:475px;
+                }
+            </style>
         </div>
     </div>
     </div>
