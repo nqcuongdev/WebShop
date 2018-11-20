@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/',['as' => 'index', 'uses' => 'PageController@getIndex']);
+Route::get('index',['as' => 'index', 'uses' => 'PageController@getIndex']);
 Route::get('products',['as' => 'products', 'uses' => 'PageController@getProducts']);
 Route::get('products/{id_type}',['as' => 'product', 'uses' => 'PageController@getProductsByID']);
 Route::get('checkout',['as' => 'checkout', 'uses' => 'PageController@getCheckOut']);
