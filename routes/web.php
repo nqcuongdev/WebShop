@@ -23,8 +23,9 @@ Route::get('addtocart/{id}',['as' => 'addtocart', 'uses' => 'PageController@getA
 Route::get('delete-item-cart/{id}',['as' => 'deleteitem', 'uses' => 'PageController@removeItem']);
 Route::get('product-details/{id}',['as' => 'product-details', 'uses' => 'PageController@getProductsDetails']);
 Route::get('thanks',['as' => 'thanks', 'uses' => 'PageController@getThanks']);
+Route::get('/login',['as' => 'login','uses' => 'PageController@getlogIn']);
+Route::get('/register',['as' => 'register','uses' => 'PageController@getRegister']);
 Route::group(['prefix' => 'admin'],function (){
-   Route::get('/login',['as' => 'login','uses' => 'AdminController@logIn']);
    Route::get('/dashboard',['as' => 'dashboard','uses' => 'AdminController@getIndex']);
    Route::get('/products-management',['as' => 'products-management','uses' => 'AdminController@getProductsManagement']);
    Route::get('/addproduct',['as' => 'addproduct','uses' => 'AdminController@getAddProducts']);

@@ -126,6 +126,7 @@ class PageController extends Controller
         $productFeature = Products::where('feature_id',1)->get();
         return view('page.product-details',compact('productDetails','productFeature'));
     }
-
     public function getThanks(){return view('page.thanks');}
+    public function getLogIn(){return view('page.login');}
+    public function getRegister(){return view('page.register');}
 }
