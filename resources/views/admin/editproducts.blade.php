@@ -50,7 +50,10 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label mb-1">Seling Product</label>
-                                            <input name="sellingpr" type="text" class="form-control" value="{{$items->feature_id}}">
+                                            <select name="sellingpr" class="form-control">
+                                                <option @if($items->feature_id == 0) selected @endif value="0">Normal</option>
+                                                <option @if($items->feature_id == 1) selected @endif value="1">Best Selling</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
