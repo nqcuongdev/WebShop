@@ -48,8 +48,11 @@
                                             <input name="promotion" type="text" class="form-control">
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="control-label mb-1">Seling Product</label>
-                                            <input name="sellingpr" type="text" class="form-control">
+                                            <label class="control-label mb-1">Selling Product</label>
+                                            <select name="sellingpr" class="form-control">
+                                                <option value="0">Normal</option>
+                                                <option value="1">Best Selling</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
