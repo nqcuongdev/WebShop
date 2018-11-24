@@ -25,7 +25,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                         <a class="dropdown-item" href="{{ route('products') }}">All</a>
                     @foreach ($typeproduct as $type)
-                        <a class="dropdown-item" href="{{ route('product',$type -> id) }}">{{ $type -> name }}</a>
+                        <a class="dropdown-item" href="{{ route('product',$type -> id) }}">{{ $type -> name_type }}</a>
                     @endforeach
 
                 </div>
@@ -142,6 +142,17 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
                 <a class="block-2-item" href="#">
                     <figure class="image">
+                    <img src="{{asset('shoppers/images/men.jpg')}}" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                    <span class="text-uppercase">Collections</span>
+                    <h3>Man</h3>
+                    </div>
+                </a>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
                     <img src="{{asset('shoppers/images/women.jpg')}}" alt="" class="img-fluid">
                     </figure>
                     <div class="text">
@@ -150,24 +161,13 @@
                     </div>
                 </a>
                 </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                <a class="block-2-item" href="#">
-                    <figure class="image">
-                    <img src="{{asset('shoppers/images/children.jpg')}}" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                    <span class="text-uppercase">Collections</span>
-                    <h3>Children</h3>
-                    </div>
-                </a>
-                </div>
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
                 <a class="block-2-item" href="#">
                     <figure class="image">
-                    <img src="{{asset('shoppers/images/men.jpg')}}" alt="" class="img-fluid">
+                    <img src="{{asset('shoppers/images/assesories.jpg')}}" alt="" class="img-fluid">
                     </figure>
                     <div class="text">
-                    <span class="text-uppercase">Collections</span>
+                    <span class="text-uppercase">Assesories</span>
                     <h3>Men</h3>
                     </div>
                 </a>

@@ -1,144 +1,113 @@
-<div class="col-md-3 left_col">
-    <div class="left_col scroll-view">
-      <div class="navbar nav_title" style="border: 0;">
-        <a href="{{route('index')}}" class="site_title"><i class="fa fa-paw"></i> <span>Admin</span></a>
-      </div>
-
-      <div class="clearfix"></div>
-
-<!-- menu profile quick info -->
-<div class="profile clearfix">
-    <div class="profile_pic">
-        <img src="{{url('/admin/images/img.jpg')}}" alt="..." class="img-circle profile_img">
-    </div>
-    <div class="profile_info">
-      <span>Welcome,</span>
-      <h2>Cường</h2>
-    </div>
-  </div>
-  <!-- /menu profile quick info -->
-
-  <br />
-
-  <!-- sidebar menu -->
-  <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-    <div class="menu_section">
-      <h3>General</h3>
-      <ul class="nav side-menu">
-        <li><a><i class="fa fa-home"></i> Dashboard</a></li>
-        <li><a><i class="fa fa-edit"></i> Products Management</span></a>
-          <ul class="nav child_menu">
-            @foreach ($typeproduct as $item)
-              <li><a href="{{ $item -> link }}">{{ $item -> name }}</a></li>
-            @endforeach
-          </ul>
-        </li>
-        <li><a><i class="fa fa-desktop"></i> Web Management</span></a>
-          <ul class="nav child_menu">
-            <li><a href="">Banner</a></li>
-            <li><a href="">Promotion</a></li>
-          </ul>
-        </li>
-        <li><a><i class="fa fa-table"></i> Customer Management</span></a>
-          <ul class="nav child_menu">
-            <li><a href="">Order</a></li>
-            <li><a href="">Customer</a></li>
-          </ul>
-        </li>
-        <li><a><i class="fa fa-archive"></i> Staff Management</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- /sidebar menu -->
-</div>
-</div>
-
-<!-- top navigation -->
-<div class="top_nav">
-<div class="nav_menu">
-  <nav>
-    <div class="nav toggle">
-      <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-    </div>
-
-    <ul class="nav navbar-nav navbar-right">
-      <li class="">
-        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="{{url('/admin/images/img.jpg')}}" alt="">Anh Cường
-          <span class=" fa fa-angle-down"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-usermenu pull-right">
-          <li><a href=""> Profile</a></li>
-          <li><a href=""><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-        </ul>
-      </li>
-
-      <li role="presentation" class="dropdown">
-        <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-          <i class="fa fa-shopping-cart"></i>
-          <span class="badge bg-green">6</span>
-        </a>
-        <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-          <li>
-            <a>
-                <span class="image"><img src="{{url('/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-              <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-              </span>
-              <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-              </span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="image"><img src="{{url('/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-              <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-              </span>
-              <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-              </span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="image"><img src="{{url('/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-              <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-              </span>
-              <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-              </span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="image"><img src="{{url('/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-              <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-              </span>
-              <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-              </span>
-            </a>
-          </li>
-          <li>
-            <div class="text-center">
-              <a>
-                <strong>See All Alerts</strong>
-                <i class="fa fa-angle-right"></i>
-              </a>
+<!-- HEADER MOBILE-->
+<header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo text-logo" href="{{route('dashboard')}}">
+                    Double C
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
             </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</div>
-</div>
+        </div>
+    </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li>
+                    <a href="{{route('dashboard')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{route('products-management')}}"><i class="fas fa-certificate"></i>Product Management</a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-shopping-cart"></i>Order Management</a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-users"></i>Member Management</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- END HEADER MOBILE-->
+
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a class="text-logo" href="{{route('dashboard')}}">
+            Double C
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li>
+                    <a href="{{route('dashboard')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{route('products-management')}}"><i class="fas fa-certificate"></i>Product Management</a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-shopping-cart"></i>Order Management</a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-users"></i>Member Management</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->
+<div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="header-wrap float-right">
+                    <div class="header-button">
+                        <div class="noti-wrap">
+                        </div>
+                        <div class="account-wrap">
+                            <div class="account-item clearfix js-item-menu">
+                                <div class="image">
+                                    <img src="{{url('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                </div>
+                                <div class="content">
+                                    <a class="js-acc-btn" href="">nqcuong</a>
+                                </div>
+                                <div class="account-dropdown js-dropdown">
+                                    <div class="info clearfix">
+                                        <div class="image">
+                                            <a href="">
+                                                <img src="{{url('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h5 class="name">
+                                                <a href="">nqcuong</a>
+                                            </h5>
+                                            <span class="email">nqcuong.17it3@sict.udn.vn</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-dropdown__body">
+                                        <div class="account-dropdown__item">
+                                            <a href="">
+                                                <i class="zmdi zmdi-account"></i>Account</a>
+                                        </div>
+                                    </div>
+                                    <div class="account-dropdown__footer">
+                                        <a href=""><i class="zmdi zmdi-power"></i>Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HEADER DESKTOP-->

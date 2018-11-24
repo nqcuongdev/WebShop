@@ -30,14 +30,16 @@
             </div>
         </div>
         </div>
-        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-        <h3 class="footer-heading mb-4">Promo</h3>
-        <a href="" class="block-6">
-            <img src="{{asset('shoppers/images/hero_1.jpg')}}" alt="Image placeholder" class="img-fluid rounded mb-4">
-            <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-            <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-        </a>
-        </div>
+        @foreach($bannerindex as $item)
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <h3 class="footer-heading mb-4">Promotion</h3>
+            <a href="" class="block-6">
+                <img src="{{url($item->image)}}" alt="Image placeholder" class="img-fluid rounded mb-4">
+                <h3 class="font-weight-light  mb-0">{{$item->typotext}}</h3>
+                <p>{{$item->promotion}}</p>
+            </a>
+            </div>
+        @endforeach
         <div class="col-md-6 col-lg-3">
         <div class="block-5 mb-5">
             <h3 class="footer-heading mb-4">Contact Info</h3>
@@ -61,11 +63,7 @@
     </div>
     <div class="row pt-5 mt-5 text-center">
         <div class="col-md-12">
-        <p>
-        <i class="icon-heart" aria-hidden="true"></i> Created  by Nguyen Van Chau <i class="icon-heart" aria-hidden="true"></i>
-        </p>
-        </div>
-        
+        </div>   
     </div>
     </div>
 </footer>

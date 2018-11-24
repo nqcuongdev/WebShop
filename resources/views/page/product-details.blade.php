@@ -24,16 +24,16 @@
             <div class="d-flex mr-3 mb-3">
                 <div class="input-group mb-3 mr-2" style="max-width: 120px;">
                     <div class="input-group-prepend">
-                    <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                        <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                     </div>
-                    <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    <input type="text" class="form-control text-center" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
                     <div class="input-group-append">
-                    <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                </div>
+                        <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                    </div>
             </div>
             <div class="d-flex mr-3 mb-3">
                 @if ($productDetails -> id_type == 1 || $productDetails -> id_type == 2 || $productDetails -> id_type == 4)
-                    <select class="form-control">
+                    <select class="form-control text-center">
                         <option value="1">Small</option>
                         <option value="2">Medium</option>
                         <option value="3">Large</option>
@@ -53,7 +53,7 @@
         </div>
 
         </div>
-        <p><a href="{{ route('cart',$productDetails -> id) }}" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+        <p><a href="{{ route('addtocart',$productDetails -> id) }}" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
 
         </div>
     </div>

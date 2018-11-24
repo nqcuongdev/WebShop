@@ -1,23 +1,22 @@
 @extends('master')
 @section('content')
-    @foreach($bannerindex as $value)
-        <div class="site-blocks-cover" style="background-image: url({{asset($value -> image)}});" data-aos="fade">
-            <div class="container">
-            <div class="row align-items-start align-items-md-center justify-content-end">
-                <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-                <h1 class="mb-2">{{$value -> typotext}}</h1>
-                <div class="intro-text text-center text-md-left">
-                    <p class="mb-4">{{$value -> smalltext}}</p>
-                    <p>
-                    <a href="{{$value -> link}}" class="btn btn-sm btn-primary">{{$value -> buttontext}}</a>
-                    </p>
-                </div>
-                </div>
-            </div>
-            </div>
+@foreach ($bannerindex as $value)
+<div class="site-blocks-cover" style="background-image: url({{asset($value -> image)}});" data-aos="fade">
+    <div class="container">
+    <div class="row align-items-start align-items-md-center justify-content-end">
+        <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
+        <h1 class="mb-2">{{$value -> typotext}}</h1>
+        <div class="intro-text text-center text-md-left">
+            <p class="mb-4">{{$value -> smalltext}}</p>
+            <p>
+            <a href="{{$value -> link}}" class="btn btn-sm btn-primary">{{$value -> buttontext}}</a>
+            </p>
         </div>
-    @endforeach
-
+        </div>
+    </div>
+    </div>
+</div>
+@endforeach
 <div class="site-section site-section-sm site-blocks-1">
     <div class="container">
     <div class="row">
@@ -58,22 +57,22 @@
         <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
         <a class="block-2-item" href="#">
             <figure class="image">
-            <img src="{{asset('shoppers/images/women.jpg')}}" alt="" class="img-fluid">
+            <img src="{{asset('shoppers/images/men.jpg')}}" alt="" class="img-fluid">
             </figure>
             <div class="text">
             <span class="text-uppercase">Collections</span>
-            <h3>Women</h3>
+            <h3>Men</h3>
             </div>
         </a>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
         <a class="block-2-item" href="#">
             <figure class="image">
-            <img src="{{asset('shoppers/images/men.jpg')}}" alt="" class="img-fluid">
+            <img src="{{asset('shoppers/images/women.jpg')}}" alt="" class="img-fluid">
             </figure>
             <div class="text">
             <span class="text-uppercase">Collections</span>
-            <h3>Men</h3>
+            <h3>Women</h3>
             </div>
         </a>
         </div>
@@ -84,7 +83,7 @@
             </figure>
             <div class="text">
             <span class="text-uppercase">Collections</span>
-            <h3>Accesories</h3>
+            <h3>Assesories</h3>
             </div>
         </a>
         </div>

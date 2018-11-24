@@ -17,7 +17,6 @@ class Cart extends Model
 			$this->totalPrice = $oldCart->totalPrice;
 		}
 	}
-
 	public function add($item, $id){
 		$cart = ['qty' => 0, 'price' => $item->unit_price, 'item' => $item];
 		if($this->items){
@@ -30,6 +29,13 @@ class Cart extends Model
 		$this->items[$id] = $cart;
 		$this->totalQty++;
 		$this->totalPrice += $item->unit_price;
+	}
+	//Increase One
+	public function increaseByOne($id){
+		$this->items[$id]['qty']++;
+	    $this->items[$id]['price'] += $this->items[$id]['item']['price'];
+	    $this->totalQty++;
+	    $this->totalPrice += $this->items[$id]['item']['price'];
 	}
 	//One Delete
 	public function reduceByOne($id){

@@ -20,13 +20,9 @@
             
             <div class="p-3 p-lg-5 border">
             <div class="form-group row">
-                <div class="col-md-6">
-                <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
+                <div class="col-md-12">
+                <label for="c_fname" class="text-black">Full Name <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="c_fname" name="c_fname">
-                </div>
-                <div class="col-md-6">
-                <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="c_lname" name="c_lname">
                 </div>
             </div>
             <div class="form-group row">
@@ -56,7 +52,7 @@
             </div>
         </form>
         </div>
-        <div class="col-md-5 ml-auto border mapouter">
+        <div class="col-md-5 ml-auto">
             <div class="gmap_canvas">
                 <iframe width="475" height="670" id="gmap_canvas" src="https://maps.google.com/maps?q=Khoa%20C%C3%B4ng%20Ngh%E1%BB%87%20Th%C3%B4ng%20Tin%20v%C3%A0%20Truy%E1%BB%81n%20Th%C3%B4ng&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>

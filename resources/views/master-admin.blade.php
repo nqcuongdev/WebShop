@@ -1,84 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Admin Double C</title>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap -->
-    <link href="{{url('/admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{url('/admin/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{url('/admin/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{url('/admin/vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="{{url('/admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="{{url('/admin/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="{{url('/admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+    <!-- Title Page-->
+    <title>Double C Admin</title>
 
-    <!-- Custom Theme Style -->
-    <link href="{{url('/admin/build/css/custom.min.css')}}" rel="stylesheet">
-  </head>
+    <!-- Fontfaces CSS-->
+    <link href="{{url('admin/css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
-  <body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            @include('slidebar-admin')
+    <!-- Bootstrap CSS-->
+    <link href="{{url('admin/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{{url('admin/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('admin/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{url('admin/css/theme.css')}}" rel="stylesheet" media="all">
+</head>
+<body class="animsition">
+
+    <div class="page-wrapper">
+
+        @include('slidebar-admin')
             @yield('content')
-            @include('footer-admin')
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="{{url('/admin/vendors/jquery/dist/jquery.min.js')}}"></script>
-    <!-- Bootstrap -->
-    <script src="{{url('/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <!-- FastClick -->
-    <script src="{{url('/admin/vendors/fastclick/lib/fastclick.js')}}"></script>
-    <!-- NProgress -->
-    <script src="{{url('/admin/vendors/nprogress/nprogress.js')}}"></script>
-    <!-- Chart.js -->
-    <script src="{{url('/admin/vendors/Chart.js/dist/Chart.min.js')}}"></script>
-    <!-- gauge.js -->
-    <script src="{{url('/admin/vendors/gauge.js/dist/gauge.min.js')}}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{url('/admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-    <!-- iCheck -->
-    <script src="{{url('/admin/vendors/iCheck/icheck.min.js')}}"></script>
-    <!-- Skycons -->
-    <script src="{{url('/admin/vendors/skycons/skycons.js')}}"></script>
-    <!-- Flot -->
-    <script src="{{url('/admin/vendors/Flot/jquery.flot.js')}}"></script>
-    <script src="{{url('/admin/vendors/Flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{url('/admin/vendors/Flot/jquery.flot.time.js')}}"></script>
-    <script src="{{url('/admin/vendors/Flot/jquery.flot.stack.js')}}"></script>
-    <script src="{{url('/admin/vendors/Flot/jquery.flot.resize.js')}}"></script>
-    <!-- Flot plugins -->
-    <script src="{{url('/admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-    <script src="{{url('/admin/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-    <script src="{{url('/admin/vendors/flot.curvedlines/curvedLines.js')}}"></script>
-    <!-- DateJS -->
-    <script src="{{url('/admin/vendors/DateJS/build/date.js')}}"></script>
-    <!-- JQVMap -->
-    <script src="{{url('/admin/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
-    <script src="{{url('/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="{{url('/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{url('/admin/vendors/moment/min/moment.min.js')}}"></script>
-    <script src="{{url('/admin/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="{{url('/admin/build/js/custom.min.js')}}"></script>
-	
-  </body>
+    <!-- Jquery JS-->
+    <script src="{{url('admin/vendor/jquery-3.2.1.min.js')}}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{url('admin/vendor/bootstrap-4.1/popper.min.js')}}"></script>
+    <script src="{{url('admin/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <!-- Vendor JS -->
+    <script src="{{url('admin/vendor/slick/slick.min.js')}}"></script>
+    <script src="{{url('admin/vendor/wow/wow.min.js')}}"></script>
+    <script src="{{url('admin/vendor/animsition/animsition.min.js')}}"></script>
+    <script src="{{url('admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <script src="{{url('admin/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+    <script src="{{url('admin/vendor/counter-up/jquery.counterup.min.js')}}"></script>
+    <script src="{{url('admin/vendor/circle-progress/circle-progress.min.js')}}"></script>
+    <script src="{{url('admin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{url('admin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
+    <script src="{{url('admin/vendor/select2/select2.min.js')}}"></script>
+
+    <!-- Main JS-->
+    <script src="{{url('admin/js/main.js')}}"></script>
+</body>
 </html>
+<!-- end document-->

@@ -15,23 +15,20 @@
             <a href="{{ route('index') }}" class="js-logo-clone">DoubleC Shop</a>
           </div>
         </div>
-        {{-- @if(Session::has('keyCart')) --}}
         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
           <div class="site-top-icons">
             <ul>
-              <li><a href=""><span class="icon icon-person"></span></a></li>
-              <li><a href=""><span class="icon icon-heart-o"></span></a></li>
-              <li>
-                <a href="{{ route('cart') }}" class="site-cart">
-                  <span class="icon icon-shopping_cart"></span>
-                  <span class="count"></span>{{-- Session('keyCart') -> totalQty --}}
-                </a>
-              </li> 
-              <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                <li><a href=""><span class="icon icon-person"></span></a></li>
+                <li>
+                  <a href="{{route('cart')}}" class="site-cart">
+                    <span class="icon icon-shopping_cart"></span>
+                    <span class="count">@if(Session::has('cart')){{Session('cart')->totalQty}} @else 0 @endif</span>
+                  </a>
+                </li>
+                <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
             </ul>
           </div> 
         </div>
-        {{-- @endif --}}
       </div>
     </div>
   </div> 
@@ -41,12 +38,18 @@
         <li class="active">
           <a href="{{ route('index') }}">Home</a>
         </li>
-        <li class="has-children"><a href="{{ route('products') }}">Shop</a>
-          <ul class="dropdown">
-            <li><a href="{{ route('checkout') }}">Check Out</a></li>
-            <li><a href="{{ route('cart') }}">Cart</a></li>
-          </ul>
-        </li>
+        @if(Session::has('cart'))
+          <li class="has-children"><a href="{{ route('products') }}">Shop</a>
+            <ul class="dropdown">
+              <li><a href="{{ route('checkout') }}">Check Out</a></li>
+              <li><a href="{{ route('cart') }}">Cart</a></li>
+            </ul>
+          </li>
+        @else
+          <li>
+            <a href="{{ route('products') }}">Shop</a>
+          </li>
+        @endif
         <li>
           <a href="{{ route('about') }}">About</a>
         </li>

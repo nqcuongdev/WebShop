@@ -25,31 +25,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($product as $product_details)
-                    <tr>
-                    <td class="product-thumbnail">
-                        <img src="{{ asset($product_details['image']) }}" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                        <h2 class="h5 text-black">{{ $product_details['item']['name']}}</h2>
-                    </td>
-                    <td>${{ $product_details['item']['unit_price'] }}</td>
-                    <td>
-                        <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                        </div>
-
-                    </td>
-                    <td>${{ $product_details['item']['unit_price'] }}</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                    </tr>
-                @endforeach
+                @if(Session::has('cart'))
+                    @foreach($products_cart as $product_details)
+                        <tr>
+                        <td class="product-thumbnail">
+                            <img src="{{url($product_details['item']['image'])}}" alt="Image" class="img-fluid">
+                        </td>
+                        <td class="product-name">
+                            <h2 class="h5 text-black">{{$product_details['item']['name']}}</h2>
+                        </td>
+                        <td>${{$product_details['item']['unit_price']}}</td>
+                        <td>
+                            <div class="input-group mb-3" style="max-width: 120px;">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                            </div>
+                            <input type="text" class="form-control text-center" value="{{$product_details['qty']}}" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                            </div>
+                            </div>
+                        </td>
+                        <td>${{$product_details['qty'] * $product_details['item']['unit_price']}}</td>
+                        <td><a href="{{route('deleteitem',$product_details['item']['id'])}}" class="btn btn-primary btn-sm">X</a></td>
+                        </tr>
+                    @endforeach        
+                @endif
             </tbody>
             </table>
         </div>
@@ -74,10 +75,10 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
-                <span class="text-black">Taxes</span>
+                <span class="text-black">Total Product</span>
                 </div>
                 <div class="col-md-6 text-right">
-                <strong class="text-black">$230.00</strong>
+                <strong class="text-black">$@if(Session::has('cart')){{Session::get('cart')->totalPrice}} @else 0 @endif</strong>
                 </div>
             </div>
             <div class="row mb-3">
@@ -85,15 +86,15 @@
                 <span class="text-black">Shipping</span>
                 </div>
                 <div class="col-md-6 text-right">
-                <strong class="text-black">$230.00</strong>
+                <strong class="text-black">$@if(Session::has('cart')) @if($shipping = Session::get('cart')->totalPrice > 300) 0 @else {{$shipping = 20}}  @endif @endif</strong>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-md-6">
-                <span class="text-black">Total</span>
+                <span class="text-black">Total all</span>
                 </div>
                 <div class="col-md-6 text-right">
-                <strong class="text-black">$230.00</strong>
+                <strong class="text-black">$@if(Session::has('cart')){{Session::get('cart')->totalPrice + $shipping}} @endif</strong>
                 </div>
             </div>
 

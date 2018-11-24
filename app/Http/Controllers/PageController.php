@@ -6,9 +6,12 @@ use App\BannerIndex;
 use App\Cart;
 use App\TypeProduct;
 use App\Products;
+use App\Customer;
+use App\Bill;
+use App\BillDetails;
+use Session;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class PageController extends Controller
 {
@@ -20,7 +23,6 @@ class PageController extends Controller
         $productFeature = Products::where('feature_id',1)->get();
         return view('page.index',compact('bannerindex','productFeature'));
     }
-
     public function getProducts(){
         //Lấy toàn bộ dữ liệu trong table products để truyền dữ liệu
         //kiểu mảng vào trang products
@@ -31,40 +33,93 @@ class PageController extends Controller
         $typeproduct = TypeProduct::all();
         return view('page.products',compact('product','typeproduct'));
     }
-
     public function getProductsByID($id_type){
         //Tương tự như trên nhưng lọc sản phẩm theo id
         $product = Products::where('id_type',$id_type)->paginate(6);
         $typeproduct = TypeProduct::all();
         return view('page.products',compact('product','typeproduct'));
     }
-
     public function getCheckOut(){
-        return view('page.checkout');
+        $cart = Session::get('cart');
+        return view('page.checkout',['cart'=>Session::get('cart'), 'products_cart' => $cart->items]);
     }
+    public function postCheckOut(Request $req){
+        $cart = Session::get('cart');
 
-    public function getAbout(){
-        return view('page.about');
+        $customer = new Customer;
+        $customer->name = $req->c_fname;
+        $customer->email = $req->c_email_address;
+        $customer->address = $req->c_address;
+        $customer->phone_number = $req->c_phone;
+        $customer->note = $req->c_order_notes;
+        $customer->save();
+
+        $bill = new Bill;
+        $bill->id_customer = $customer->id;
+        $bill->date_order = date('Y-m-d');
+        $bill->total = $cart->totalPrice;
+        $bill->note = $customer->note;
+        $bill->save();
+
+        foreach ($cart->items as $key => $value) {
+            $bill_details = new BillDetails;
+            $bill_details->id_bill = $bill->id;
+            $bill_details->id_product = $key;
+            $bill_details->quantity = $value['qty'];
+            $bill_details->unit_price = ($value['price']/$value['qty']);
+            $bill_details->total = $bill->total;
+            $bill_details->save();
+        }
+        Session::forget('cart');
+        return redirect('\thanks');
+        
     }
-
-    public function getContact(){
-        return view('page.contact');
+    public function getAbout(){return view('page.about');}
+    public function getContact(){return view('page.contact');}
+    public function cart(){
+        if(!Session::has('cart')) return view('page.cart');
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('page.cart',['cart'=>Session::get('cart'), 'products_cart' => $cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);     
     }
-
     public function getAddtoCart(Request $req,$id){
         //Tìm sản phẩm có $id
         $product = Products::find($id);
         //Kiểm trả cart có session hay không nếu có lấy ko thì null
-        $oldCart = Session('keyCart')?Session::get('keyCart'):null;
-        //Khởi tạo $cart từ Model Cart để sử dụng các phương thức trong đó
+        //Toán tử 3 ngôi check Session
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        //Truyền oldcart vào contructor
         $cart = new Cart($oldCart);
         $cart->add($product,$id);
         //Put cart vào session
-        $req->session()->put('keyCart',$cart);
-        redirect('page.thanks');
-        return view('page.cart',compact('product'));
+        $req->session()->put('cart',$cart);
+        return redirect()->back();
     }
-
+    public function reduceOne($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+        Session::put('cart', $cart);
+        return redirect()->back();
+    }
+    public function increaseOne($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->increaseByOne($id);
+        Session::put('cart', $cart);
+        return redirect()->back();
+    }
+    public function removeItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        if (count($cart->items) > 0) {
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart',$id);
+        }
+        return redirect()->back();
+    }
     public function getProductsDetails(Request $req){
         //Nhận request là 1 id sau đó query và lấy giá trị đầu tiền (mỗi products có id riêng)
         $productDetails = Products::where('id',$req->id)->first();
@@ -72,7 +127,5 @@ class PageController extends Controller
         return view('page.product-details',compact('productDetails','productFeature'));
     }
 
-    public function getThanks(){
-        return view('page.thanks');
-    }
+    public function getThanks(){return view('page.thanks');}
 }
