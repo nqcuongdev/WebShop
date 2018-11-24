@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <h2 class="title-1 m-b-25">List order</h2>
                         <div class="table-responsive table--no-card m-b-40">
                             <table class="table table-borderless table-striped table-earning">
@@ -93,7 +93,7 @@
                                     <tr>
                                         <td>{{$item->date_order}}</td>
                                         <td>{{$item->id}}</td>
-                                        <td>{{$item->name_type}}</td>
+                                        <td>{{$item->name}}</td>
                                         <td class="text-right">${{$item->unit_price}}</td>
                                         <td class="text-right">{{$item->quantity}}</td>
                                         <td class="text-right">${{$item->total}}</td>
@@ -103,7 +103,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <h2 class="title-1 m-b-25">List category</h2>
                         <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                             <div class="au-card-inner">
@@ -112,7 +112,7 @@
                                         <tbody>
                                             @foreach($product_type as $category)
                                                 <tr>
-                                                    <td>{{$category->name}}</td>
+                                                    <td>{{$category->name_type}}</td>
                                                     <td>{{$category->description}}</td>
                                                 </tr>
                                             @endforeach
