@@ -93,7 +93,7 @@
                                     <tr>
                                         <td>{{$item->date_order}}</td>
                                         <td>{{$item->id}}</td>
-                                        <td>{{$item->name}}</td>
+                                        <td>{{$item->name_type}}</td>
                                         <td class="text-right">${{$item->unit_price}}</td>
                                         <td class="text-right">{{$item->quantity}}</td>
                                         <td class="text-right">${{$item->total}}</td>
