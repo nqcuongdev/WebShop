@@ -25,7 +25,7 @@ Route::get('product-details/{id}',['as' => 'product-details', 'uses' => 'PageCon
 Route::get('thanks',['as' => 'thanks', 'uses' => 'PageController@getThanks']);
 Route::get('login',['as' => 'login','uses' => 'PageController@getlogIn']);
 Route::get('register',['as' => 'register','uses' => 'PageController@getRegister']);
-Route::post('register',['as' => 'registers','uses' => 'PageController@postRegister']);
+Route::post('registers',['as' => 'registers','uses' => 'PageController@postRegister']);
 Route::group(['prefix' => 'admin'],function (){
    Route::get('/dashboard',['as' => 'dashboard','uses' => 'AdminController@getIndex']);
    Route::get('/products-management',['as' => 'products-management','uses' => 'AdminController@getProductsManagement']);

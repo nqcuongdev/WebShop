@@ -2,6 +2,7 @@
 @section('content')
 <div class="login-form">
     <form action="{{route('registers')}}" method="POST">
+        {{ csrf_field() }}
         <div class="form-group">
             <label>Full Name</label>
             <input class="au-input au-input--full" type="text" name="fullname" placeholder="Full name">

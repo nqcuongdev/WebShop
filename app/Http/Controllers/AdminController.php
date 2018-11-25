@@ -94,18 +94,4 @@ class AdminController extends Controller
                     ->get();
         return view('admin.order-management',compact('list_order'));
     }
-    public function getRegister(){return view('page.register');}
-    public function postRegister(Request $req){
-        $this->validate(
-            ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password'],
-            ['email.required'=>'Enter your email','email.email'=>'Enter the correct email format','email.unique'=>'Email already exists','password.required'=>'Enter correct password'
-            ,'re_password.same'=>'Passwords are not the same','password.min'=>'Password of at least 6 characters']
-        );
-        $user = new User();
-        $user->full_name = $req->fullname;
-        $user->email = $req->email;
-        $user->password = Hash::make($req->password);
-        $user->save();
-        return redirect('login');
-    }
 }
