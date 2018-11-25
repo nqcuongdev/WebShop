@@ -2,11 +2,11 @@
   <div class="site-navbar-top">
     <div class="container">
       <div class="row align-items-center">
-
         <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-          <form action="" class="site-block-top-search">
+          <form action="{{route('search')}}" method="POST" class="site-block-top-search" id="searchForm">
+            {{csrf_field()}}
             <span class="icon icon-search2"></span>
-            <input type="text" class="form-control border-0" placeholder="Search">
+            <input type="text" name="key" class="form-control border-0" placeholder="Search">
           </form>
         </div>
 

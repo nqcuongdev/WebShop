@@ -163,8 +163,14 @@ class PageController extends Controller
         $user->full_name = $req->fullname;
         $user->email = $req->email;
         $user->password = Hash::make($req->password);
-        $user->group_id = 0;
+        $user->group_id = "user";
         $user->save();
         return redirect('login');
+    }
+    public function postSearch(Request $req){
+        $product = Products::where('name','like','%'.$req->key.'%')
+                            ->orWhere('unit_price',$req->key)
+                            ->paginate(4);
+        return view('page.search',compact('product'));
     }
 }

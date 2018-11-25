@@ -29,7 +29,13 @@
 
     @include('footer')
   </div>
-
+  <script>
+      document.onkeydown = function(){
+        if(window.event.keyCode == '13'){
+          document.form.submit();
+        }
+      }
+  </script>
   <script src="{{url('shoppers/js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{url('shoppers/js/jquery-ui.js')}}"></script>
   <script src="{{url('shoppers/js/popper.min.js')}}"></script>
