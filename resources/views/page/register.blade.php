@@ -1,7 +1,7 @@
 @extends('master-access')
 @section('content')
 <div class="login-form">
-    <form action="" method="post">
+    <form action="{{route('registers')}}" method="POST">
         <div class="form-group">
             <label>Full Name</label>
             <input class="au-input au-input--full" type="text" name="fullname" placeholder="Full name">
