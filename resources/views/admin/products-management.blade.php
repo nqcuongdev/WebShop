@@ -17,8 +17,8 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th class="text-center">product type</th>
-                                    <th class="text-center">manufacturer</th>
                                     <th class="text-center">unit price</th>
+                                    <th class="text-center">promotion price</th>
                                     <th>image</th>
                                     <th></th>
                                 </tr>
