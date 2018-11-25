@@ -18,7 +18,7 @@
         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
           <div class="site-top-icons">
             <ul>
-                <li><a href=""><span class="icon icon-person"></span></a></li>
+                <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
                 <li>
                   <a href="{{route('cart')}}" class="site-cart">
                     <span class="icon icon-shopping_cart"></span>
