@@ -18,7 +18,8 @@
         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
           <div class="site-top-icons">
             <ul class="site-menu js-clone-nav d-none d-md-block">
-                @if(Auth::check())
+              @if(Auth::check())
+                @if(Auth::user()->group_id == 0)
                 <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
                 <li>
                     <a href="{{route('cart')}}" class="site-cart">
@@ -27,6 +28,11 @@
                     </a>
                   </li>
                 <li><a href="{{route('logout')}}"><span class="icon icon-exit_to_app"></span></a></li>
+                <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                @elseif(Auth::user()->group_id == 1)
+                  <li><a href="{{route('dashboard')}}"><span class="icon-dashboard"></span></a></li>
+                  <li><a href="{{route('logout')}}"><span class="icon icon-exit_to_app"></span></a></li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 @else
                 <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
                 <li>
@@ -36,6 +42,16 @@
                   </a>
                 </li>
                 <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+              @endif
+              @else
+              <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
+              <li>
+                <a href="{{route('cart')}}" class="site-cart">
+                  <span class="icon icon-shopping_cart"></span>
+                  <span class="count">@if(Session::has('cart')){{Session('cart')->totalQty}} @else 0 @endif</span>
+                </a>
+              </li>
+              <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
               @endif
             </ul>
           </div> 

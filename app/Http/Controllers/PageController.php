@@ -12,9 +12,9 @@ use App\BillDetails;
 use App\Users;
 use Validator;
 use Session;
-use Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
@@ -135,6 +135,8 @@ class PageController extends Controller
     public function postLogin(Request $req){
         $credentials = array('email'=>$req->email,'password'=>$req->password);
         if(Auth::attempt($credentials)){
+            // echo '<pre>';
+            // var_dump($user);
             return redirect('/');
         }else{
             return redirect('login');
