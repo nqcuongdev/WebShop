@@ -135,9 +135,11 @@ class PageController extends Controller
         //     ['email.required'=>'Enter your email','email.email'=>'Enter the correct email format','email.unique'=>'Email already exists','password.required'=>'Enter correct password'
         //     ,'re_password.same'=>'Passwords are not the same','password.min'=>'Password of at least 6 characters']
         // );
+        //1 chuẩn quy định của req nhận vào
         $rules = array(
             ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password']
         );
+        //validate quy định và cái request từ form
         $this->validate($req,$rules);
         $user = new User();
         $user->full_name = $req->fullname;
