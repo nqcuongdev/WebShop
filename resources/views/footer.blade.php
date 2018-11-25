@@ -11,7 +11,6 @@
                 <li><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="{{ route('products') }}">Shop</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
-                <li><a href="">News</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
             </div>

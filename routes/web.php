@@ -29,7 +29,7 @@ Route::get('logout',['as' => 'logout','uses' => 'PageController@postlogOut']);
 Route::get('register',['as' => 'register','uses' => 'PageController@getRegister']);
 Route::post('registers',['as' => 'registers','uses' => 'PageController@postRegister']);
 Route::post('search',['as' => 'search','uses' => 'PageController@postSearch']);
-Route::group(['prefix' => 'admin'],function (){
+Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function (){
    Route::get('/dashboard',['as' => 'dashboard','uses' => 'AdminController@getIndex']);
    Route::get('/products-management',['as' => 'products-management','uses' => 'AdminController@getProductsManagement']);
    Route::get('/addproduct',['as' => 'addproduct','uses' => 'AdminController@getAddProducts']);

@@ -18,7 +18,7 @@
         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
           <div class="site-top-icons">
             <ul class="site-menu js-clone-nav d-none d-md-block">
-              @if(Auth::check())
+                @if(Auth::check())
                 <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
                 <li>
                     <a href="{{route('cart')}}" class="site-cart">
@@ -64,7 +64,6 @@
         <li>
           <a href="{{ route('about') }}">About</a>
         </li>
-        <li><a href="">News</a></li>
         <li><a href="{{ route('contact') }}">Contact</a></li>
       </ul>
     </div>
