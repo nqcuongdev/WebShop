@@ -10,7 +10,9 @@ use App\Customer;
 use App\Bill;
 use App\BillDetails;
 use App\Users;
+use Validator;
 use Session;
+use Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -130,6 +132,18 @@ class PageController extends Controller
     }
     public function getThanks(){return view('page.thanks');}
     public function getLogIn(){return view('page.login');}
+    public function postLogin(Request $req){
+        $credentials = array('email'=>$req->email,'password'=>$req->password);
+        if(Auth::attempt($credentials)){
+            return redirect('/');
+        }else{
+            return redirect('login');
+        }
+    }
+    public function postlogOut(){
+        Auth::logout();
+        return redirect()->route('index');       
+    }
     public function getRegister(){return view('page.register');}
     public function postRegister(Request $req){
         //This appear error so i comment it hihi <3

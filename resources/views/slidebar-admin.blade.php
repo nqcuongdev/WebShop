@@ -71,26 +71,27 @@
                     <div class="header-button">
                         <div class="noti-wrap">
                         </div>
+                        @if(Auth::check())
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="{{url('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                    <img src="{{url('admin/images/icon/avatar-01.jpg')}}" alt="{{Auth::user()->full_name}}" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="">nqcuong</a>
+                                    <a class="js-acc-btn" href="">{{Auth::user()->full_name}}</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
                                             <a href="">
-                                                <img src="{{url('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                                <img src="{{url('admin/images/icon/avatar-01.jpg')}}" alt="{{Auth::user()->full_name}}" />
                                             </a>
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="">nqcuong</a>
+                                                <a href="">{{Auth::user()->full_name}}</a>
                                             </h5>
-                                            <span class="email">nqcuong.17it3@sict.udn.vn</span>
+                                            <span class="email">{{Auth::user()->email}}</span>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__body">
@@ -100,11 +101,12 @@
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href=""><i class="zmdi zmdi-power"></i>Logout</a>
+                                        <a href="{{route('logout')}}"><i class="zmdi zmdi-power"></i>Logout</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

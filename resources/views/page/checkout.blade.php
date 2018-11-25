@@ -13,7 +13,7 @@
     <div class="row mb-5">
         <div class="col-md-12">
         <div class="border p-4 rounded" role="alert">
-            Returning customer? <a href="#">Click here</a> to login
+            Returning customer? <a href="{{route('login')}}">Click here</a> to login
         </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="col-md-6 mb-5 mb-md-0">
         <h2 class="h3 mb-3 text-black">Billing Details</h2>
         <form action="{{route('submitcheckout')}}" method="POST" class="form-group">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            {{csrf_field()}}
             <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
                 <div class="col-md-12">

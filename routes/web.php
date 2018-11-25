@@ -24,6 +24,8 @@ Route::get('delete-item-cart/{id}',['as' => 'deleteitem', 'uses' => 'PageControl
 Route::get('product-details/{id}',['as' => 'product-details', 'uses' => 'PageController@getProductsDetails']);
 Route::get('thanks',['as' => 'thanks', 'uses' => 'PageController@getThanks']);
 Route::get('login',['as' => 'login','uses' => 'PageController@getlogIn']);
+Route::post('logins',['as' => 'logins','uses' => 'PageController@postlogIn']);
+Route::get('logout',['as' => 'logout','uses' => 'PageController@postlogOut']);
 Route::get('register',['as' => 'register','uses' => 'PageController@getRegister']);
 Route::post('registers',['as' => 'registers','uses' => 'PageController@postRegister']);
 Route::group(['prefix' => 'admin'],function (){
