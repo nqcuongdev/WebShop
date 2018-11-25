@@ -9,9 +9,11 @@ use App\Products;
 use App\Customer;
 use App\Bill;
 use App\BillDetails;
+use App\Users;
 use Session;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
 {
@@ -130,23 +132,25 @@ class PageController extends Controller
     public function getLogIn(){return view('page.login');}
     public function getRegister(){return view('page.register');}
     public function postRegister(Request $req){
+        //This appear error so i comment it hihi <3
         // $this->validate(
         //     ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password'],
         //     ['email.required'=>'Enter your email','email.email'=>'Enter the correct email format','email.unique'=>'Email already exists','password.required'=>'Enter correct password'
         //     ,'re_password.same'=>'Passwords are not the same','password.min'=>'Password of at least 6 characters']
         // );
-        //1 chuẩn quy định của req nhận vào
-        $rules = array(
-            ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password']
-        );
-        //validate quy định và cái request từ form
-        $this->validate($req,$rules);
-        $user = new User();
+        // //1 chuẩn quy định của req nhận vào
+        // $rules = array(
+        //     ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password']
+        // );
+        // //validate quy định và cái request từ form
+        // $this->validate($req,$rules);
+
+        $user = new Users;
         $user->full_name = $req->fullname;
         $user->email = $req->email;
         $user->password = Hash::make($req->password);
         $user->group_id = 0;
         $user->save();
-        return redirect()->back()->with('success','Your Account has been created !');
+        return redirect('login');
     }
 }
