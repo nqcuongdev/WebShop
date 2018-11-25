@@ -94,4 +94,7 @@ class AdminController extends Controller
                     ->get();
         return view('admin.order-management',compact('list_order'));
     }
+    public function getMemberManagement(){
+        return view('admin.member-manager');
+    }
 }

@@ -135,16 +135,15 @@ class PageController extends Controller
     public function postLogin(Request $req){
         $credentials = array('email'=>$req->email,'password'=>$req->password);
         if(Auth::attempt($credentials)){
-            // echo '<pre>';
-            // var_dump($user);
-            return redirect('/');
+            if(Auth::user()->group_id == 1) return redirect('/admin/dashboard');
+            elseif(Auth::user()->group_id == 0) return redirect('/');
         }else{
             return redirect('login');
         }
     }
     public function postlogOut(){
         Auth::logout();
-        return redirect()->route('index');       
+        return redirect('/');       
     }
     public function getRegister(){return view('page.register');}
     public function postRegister(Request $req){

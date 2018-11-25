@@ -38,4 +38,5 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function (){
    Route::post('/edit-product/{id}',['as' => 'edit-product','uses' => 'AdminController@postEditProducts']);
    Route::get('/delete-product/{id}',['as' => 'delete-product','uses' => 'AdminController@getDeleteProducts']);
    Route::get('/order-product',['as' => 'order-product','uses' => 'AdminController@getOrderProducts']);
+   Route::get('/member-management',['as' => 'member-management','uses' => 'AdminController@getMemberManagement']);
 });
