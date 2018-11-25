@@ -88,7 +88,7 @@ class AdminController extends Controller
         $list_order = Bill::join('bill_details','bills.id','=','bill_details.id_bill')
                     ->join('products','bill_details.id_product','=','products.id')
                     ->join('customer','bills.id_customer','=','customer.id')
-                    ->select('bills.*','bill_details.id_bill','bill_details.id_product','bill_details.quantity','bill_details.total','customer.name','customer.email')
+                    ->select('bills.*','bill_details.id_bill','bill_details.id_product','bill_details.quantity','bill_details.total','customer.name','customer.email','products.name AS name_pr')
                     ->orderby('bills.id','asc')
                     ->get();
         return view('admin.order-management',compact('list_order'));
