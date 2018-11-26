@@ -27,7 +27,7 @@
                     <a href="{{route('order-product')}}"><i class="fas fa-shopping-cart"></i>Order Management</a>
                 </li>
                 <li>
-                    <a href=""><i class="fas fa-users"></i>Member Management</a>
+                    <a href="{{route('member-management')}}"><i class="fas fa-users"></i>Member Management</a>
                 </li>
             </ul>
         </div>
@@ -55,7 +55,7 @@
                     <a href="{{route('order-product')}}"><i class="fas fa-shopping-cart"></i>Order Management</a>
                 </li>
                 <li>
-                    <a href=""><i class="fas fa-users"></i>Member Management</a>
+                    <a href="{{route('member-management')}}"><i class="fas fa-users"></i>Member Management</a>
                 </li>
             </ul>
         </nav>

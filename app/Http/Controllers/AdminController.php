@@ -95,6 +95,13 @@ class AdminController extends Controller
         return view('admin.order-management',compact('list_order'));
     }
     public function getMemberManagement(){
-        return view('admin.member-manager');
+        $customer = Customer::all();
+        return view('admin.member-manager',compact('customer'));
+    }
+    public function getDeleteMember($id){
+        $customer = Customer::find($id);
+        if($customer->delete()){
+            return redirect('admin/member-management');
+        }
     }
 }
