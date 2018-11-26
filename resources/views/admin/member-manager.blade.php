@@ -38,6 +38,39 @@
                             </tbody>
                         </table>
                     </div>
+                    <h2 class="title-1 m-b-25">Member</h2>
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">email</th>
+                                    <th class="text-center">adrress</th>
+                                    <th class="text-center">phone number</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($user as $person)
+                                <tr>
+                                    <td>{{$person->id}}</td>
+                                    <td class="text-center">{{$person->name}}</td>
+                                    <td class="text-center">{{$person->email}}</td>
+                                    @if($person->group_id == 1)
+                                    <td>
+                                        <span class="role admin">admin</span>
+                                    </td>
+                                    @else
+                                    <td>
+                                        <span class="role user">user</span>
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>  
+                    </div>  
                 </div>
             </div>
         </div>

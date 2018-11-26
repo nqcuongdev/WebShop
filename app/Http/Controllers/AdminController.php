@@ -44,7 +44,7 @@ class AdminController extends Controller
         $product->promotion_price = $req->promotion;
         $product->feature_id = $req->sellingpr;
 
-        //Xử lý upload file
+        //Process upload file
         $image = $req->image;
         $image->move(public_path('/shoppers/images'),$image->getClientOriginalName());
         $link = 'shoppers/images/'.$image->getClientOriginalName();
@@ -96,7 +96,8 @@ class AdminController extends Controller
     }
     public function getMemberManagement(){
         $customer = Customer::all();
-        return view('admin.member-manager',compact('customer'));
+        $user = Customer::all();
+        return view('admin.member-manager',compact('customer','user'));
     }
     public function getDeleteMember($id){
         $customer = Customer::find($id);

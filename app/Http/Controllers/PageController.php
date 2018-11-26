@@ -20,25 +20,18 @@ use Illuminate\Support\Facades\Hash;
 class PageController extends Controller
 {
     public function getIndex(){
-        //Lấy toàn bộ dữ liệu trong table tableindex để truyền dữ liệu
-        //kiểu mảng vào trang index
         $bannerindex = BannerIndex::all();
-        //Lấy dữ liệu sản phẩm feature (chỉ 2 giá trị 0 và 1) để truyền vào carousel
         $productFeature = Products::where('feature_id',1)->get();
         return view('page.index',compact('bannerindex','productFeature'));
     }
     public function getProducts(){
-        //Lấy toàn bộ dữ liệu trong table products để truyền dữ liệu
-        //kiểu mảng vào trang products
-        //paginate 1 hàm phân trang có sẵn
+        //Pagination
         $product = Products::paginate(6);
-        //Lấy toàn bộ dữ liệu trong table typeproduct để truyền dữ liệu
-        //kiểu mảng vào trang products
         $typeproduct = TypeProduct::all();
         return view('page.products',compact('product','typeproduct'));
     }
     public function getProductsByID($id_type){
-        //Tương tự như trên nhưng lọc sản phẩm theo id
+        //Fillter product by id
         $product = Products::where('id_type',$id_type)->paginate(6);
         $typeproduct = TypeProduct::all();
         return view('page.products',compact('product','typeproduct'));
@@ -87,15 +80,14 @@ class PageController extends Controller
         return view('page.cart',['cart'=>Session::get('cart'), 'products_cart' => $cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);     
     }
     public function getAddtoCart(Request $req,$id){
-        //Tìm sản phẩm có $id
+        //Find products have id = $id
         $product = Products::find($id);
-        //Kiểm trả cart có session hay không nếu có lấy ko thì null
-        //Toán tử 3 ngôi check Session
+        //Check cart Session
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        //Truyền oldcart vào contructor
+        //Call contructor
         $cart = new Cart($oldCart);
         $cart->add($product,$id);
-        //Put cart vào session
+        //Put cart into session
         $req->session()->put('cart',$cart);
         return redirect()->back();
     }
@@ -125,7 +117,7 @@ class PageController extends Controller
         return redirect()->back();
     }
     public function getProductsDetails(Request $req){
-        //Nhận request là 1 id sau đó query và lấy giá trị đầu tiền (mỗi products có id riêng)
+        //Receive request and query sql 
         $productDetails = Products::where('id',$req->id)->first();
         $productFeature = Products::where('feature_id',1)->get();
         return view('page.product-details',compact('productDetails','productFeature'));
