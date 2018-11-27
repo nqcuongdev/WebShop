@@ -20,7 +20,7 @@
             <ul class="site-menu js-clone-nav d-none d-md-block">
               @if(Auth::check())
                 @if(Auth::user()->group_id == 0)
-                <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
+                <li><a href="{{route('member-infomation',Auth::user()->id)}}"><span class="icon icon-person"></span></a></li>
                 <li>
                     <a href="{{route('cart')}}" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>

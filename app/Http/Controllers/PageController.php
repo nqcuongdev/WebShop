@@ -169,4 +169,27 @@ class PageController extends Controller
                             ->paginate(4);
         return view('page.search',compact('product'));
     }
+    public function getInformation($id){
+        $user = Users::find($id)->first;
+        return view('page.member-info',compact('user'));
+    }
+    public function postInformation(Request $req, $id){
+        $user = Users::find($id);
+        $user->full_name = $req->full_name;
+        $user->email = $user->email;
+        $user->address = $req->address;
+        $user->phone_number = $req->phone_number;
+
+        //Procces upload file
+        if($req->hasFile('avatar')){
+            $avatar = $req->avatar;
+            $avatar->move(public_path('/shoppers/images/avatar/'),$avatar->getClientOriginalName());
+            $link = 'shoppers/images/avatar/'.$avatar->getClientOriginalName();
+            $user->avatar = $link;
+        }else{
+            $user->avatar = $user->avatar;
+        }
+        $user->save();
+        return redirect('member-infomation/'.$user->id);
+    }
 }

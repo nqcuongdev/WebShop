@@ -14,7 +14,7 @@
         <div class="col-md-6">
         <div class="block-16">
             <figure>
-            <img src="{{asset('shoppers/images/blog_1.jpg')}}" alt="Image placeholder" class="img-fluid rounded">
+            <img src="{{url('shoppers/images/blog_1.jpg')}}" alt="Image placeholder" class="img-fluid rounded">
             </figure>
         </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="block-38 text-center">
             <div class="block-38-img">
             <div class="block-38-header">
-                <img src="{{asset('shoppers/images/person_2.jpg')}}" alt="Image placeholder" class="mb-4">
+                <img src="{{url('shoppers/images/person_2.jpg')}}" alt="Image placeholder" class="mb-4">
                 <h3 class="block-38-heading h4">Nguyen Quoc Cuong</h3>
                 <p class="block-38-subheading">Founder</p>
             </div>
@@ -59,7 +59,7 @@
         <div class="block-38 text-center">
             <div class="block-38-img">
             <div class="block-38-header">
-                <img src="{{asset('shoppers/images/person_4.jpg')}}" alt="Image placeholder" class="mb-4">
+                <img src="{{url('shoppers/images/person_4.jpg')}}" alt="Image placeholder" class="mb-4">
                 <h3 class="block-38-heading h4">Nguyen Van Chau</h3>
                 <p class="block-38-subheading">Sales</p>
             </div>

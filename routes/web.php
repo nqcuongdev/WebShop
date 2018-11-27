@@ -29,6 +29,8 @@ Route::get('logout',['as' => 'logout','uses' => 'PageController@postlogOut']);
 Route::get('register',['as' => 'register','uses' => 'PageController@getRegister']);
 Route::post('registers',['as' => 'registers','uses' => 'PageController@postRegister']);
 Route::post('search',['as' => 'search','uses' => 'PageController@postSearch']);
+Route::get('member-infomation/{id}',['as' => 'member-infomation','uses' => 'PageController@getInformation']);
+Route::post('memberinfomation/{id}',['as' => 'memberinfomation','uses' => 'PageController@postInformation']);
 Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function (){
    Route::get('/dashboard',['as' => 'dashboard','uses' => 'AdminController@getIndex']);
    Route::get('/products-management',['as' => 'products-management','uses' => 'AdminController@getProductsManagement']);

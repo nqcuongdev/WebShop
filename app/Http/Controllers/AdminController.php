@@ -67,7 +67,7 @@ class AdminController extends Controller
         $product->promotion_price = $req->promotion;
         $product->feature_id = $req->sellingpr;
 
-        //Xử lý upload file
+        //Proccess upload file
         if($req->hasFile('image')){
             $image = $req->image;
             $image->move(public_path('/shoppers/images'),$image->getClientOriginalName());
