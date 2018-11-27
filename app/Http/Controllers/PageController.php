@@ -127,7 +127,7 @@ class PageController extends Controller
     public function postLogin(Request $req){
         $credentials = array('email'=>$req->email,'password'=>$req->password);
         if(Auth::attempt($credentials)){
-            if(Auth::user()->group_id == 1) return redirect('/admin/dashboard');
+            if(Auth::user()->group_id == 1 || Auth::user()->group_id == 2) return redirect('/admin/dashboard');
             elseif(Auth::user()->group_id == 0) return redirect('/');
         }else{
             return redirect('login');
@@ -157,6 +157,7 @@ class PageController extends Controller
         $user->email = $req->email;
         $user->address = "";
         $user->phone_number = "";
+        $user->avatar = "";
         $user->password = Hash::make($req->password);
         $user->group_id = 0;
         $user->save();

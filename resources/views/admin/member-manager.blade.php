@@ -49,9 +49,11 @@
                                     <th class="text-center">address</th>
                                     <th class="text-center">phone number</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @if(Auth::user()->group_id == 1)
                                 @foreach($user as $person)
                                 <tr>
                                     <td>{{$person->id}}</td>
@@ -61,15 +63,30 @@
                                     <td class="text-center">{{$person->phone_number}}</td>
                                     @if($person->group_id == 1)
                                     <td>
-                                        <span class="role admin">admin</span>
+                                        <span class="role admin">boss</span>
+                                    </td>
+                                    @elseif($person->group_id == 2)
+                                    <td>
+                                        <span class="role user">admin</span>
+                                    </td>
+                                    @elseif($person->group_id == 0)
+                                    <td>
+                                        <span class="role member">user</span>
+                                    </td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a class="item" data-toggle="tooltip" href="#">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                     @else
-                                    <td>
-                                        <span class="role user">user</span>
-                                    </td>
+                                        <td></td>
+                                        <td></td>
                                     @endif
                                 </tr>
                                 @endforeach
+                            @endif
                             </tbody>
                         </table>  
                     </div>  

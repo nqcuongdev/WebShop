@@ -29,7 +29,7 @@
                   </li>
                 <li><a href="{{route('logout')}}"><span class="icon icon-exit_to_app"></span></a></li>
                 <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
-                @elseif(Auth::user()->group_id == 1)
+                @elseif(Auth::user()->group_id == 1 || Auth::user()->group_id == 2)
                   <li><a href="{{route('dashboard')}}"><span class="icon-dashboard"></span></a></li>
                   <li><a href="{{route('logout')}}"><span class="icon icon-exit_to_app"></span></a></li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>

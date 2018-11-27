@@ -105,4 +105,8 @@ class AdminController extends Controller
             return redirect('admin/member-management');
         }
     }
+    //This function can't change permisson of user is admin or user
+    public function postChangePermisson(Request $req, $id){
+        $user = User::find($id);
+    }
 }

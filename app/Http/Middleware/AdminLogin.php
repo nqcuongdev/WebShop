@@ -18,7 +18,7 @@ class AdminLogin
     {
         if(Auth::check()){
             $user = Auth::user();
-            if($user->group_id == 1) return $next($request);
+            if($user->group_id == 1 || $user->group_id == 2) return $next($request);
             else return redirect('/');
         }else{
             return redirect('/');
