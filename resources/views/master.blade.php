@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{url('shoppers/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('shoppers/css/owl.theme.default.min.css')}}">
 
-
     <link rel="stylesheet" href="{{url('shoppers/css/aos.css')}}">
 
     <link rel="stylesheet" href="{{url('shoppers/css/style.css')}}">
@@ -22,7 +21,7 @@
   </head>
   <body>
   
-  <div class="site-wrap">
+  <div class="site-wrap" ng-app="WebShop" ng-controller="PageController">
     @include('header')
 
     @yield('content')
@@ -36,6 +35,11 @@
         }
       }
   </script>
+	<script type="text/javascript" src="{{url('vendor-angular/angular-1.5.min.js')}}"></script>  
+  <script type="text/javascript" src="{{url('vendor-angular/angular-animate.min.js')}}"></script>
+  <script type="text/javascript" src="{{url('vendor-angular/angular-aria.min.js')}}"></script>
+ 	<script type="text/javascript" src="{{url('vendor-angular/angular-messages.min.js')}}"></script>
+ 	<script type="text/javascript" src="{{url('vendor-angular/angular-material.min.js')}}"></script>  
   <script src="{{url('shoppers/js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{url('shoppers/js/jquery-ui.js')}}"></script>
   <script src="{{url('shoppers/js/popper.min.js')}}"></script>
@@ -45,6 +49,7 @@
   <script src="{{url('shoppers/js/aos.js')}}"></script>
 
   <script src="{{url('shoppers/js/main.js')}}"></script>
+  <script src="{{url('vendor - angular/webShopApp.js')}}"></script>
     
   </body>
 </html>

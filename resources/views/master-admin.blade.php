@@ -30,7 +30,7 @@
     <!-- Main CSS-->
     <link href="{{url('admin/css/theme.css')}}" rel="stylesheet" media="all">
 </head>
-<body class="animsition">
+<body class="animsition" ng-app="myApp" ng-controller="AdminController">
 
     <div class="page-wrapper">
 
@@ -39,7 +39,12 @@
         </div>
     </div>
 
-
+    {{-- AngularJS --}}
+    <script type="text/javascript" src="{{url('vendor-angular/angular-1.5.min.js')}}"></script>  
+    <script type="text/javascript" src="{{url('vendor-angular/angular-animate.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('vendor-angular/angular-aria.min.js')}}"></script>
+ 	<script type="text/javascript" src="{{url('vendor-angular/angular-messages.min.js')}}"></script>
+ 	<script type="text/javascript" src="{{url('vendor-angular/angular-material.min.js')}}"></script>  
     <!-- Jquery JS-->
     <script src="{{url('admin/vendor/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->
@@ -59,6 +64,7 @@
 
     <!-- Main JS-->
     <script src="{{url('admin/js/main.js')}}"></script>
+    <script src="{{url('vendor - angular/webShopApp.js')}}"></script>
 </body>
 </html>
 <!-- end document-->
