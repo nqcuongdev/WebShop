@@ -96,7 +96,7 @@ class AdminController extends Controller
     }
     public function getMemberManagement(){
         $customer = Customer::all();
-        $user = Customer::all();
+        $user = User::all();
         return view('admin.member-manager',compact('customer','user'));
     }
     public function getDeleteMember($id){
