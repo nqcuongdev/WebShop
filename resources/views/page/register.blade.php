@@ -1,7 +1,7 @@
 @extends('master-access')
 @section('content')
 <div class="login-form">
-    <form action="{{route('registers')}}" method="POST">
+    <form action="{{route('postregister')}}" method="POST">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Full Name</label>

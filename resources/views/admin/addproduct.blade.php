@@ -12,7 +12,7 @@
                                     <h3 class="text-center title-2">Add Products In Page</h3>
                                 </div>
                                 <hr>
-                                <form action="{{route('add-product')}}" enctype="multipart/form-data" method="POST">
+                                <form action="{{route('postadd-product')}}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label class="control-label mb-1">Name</label>

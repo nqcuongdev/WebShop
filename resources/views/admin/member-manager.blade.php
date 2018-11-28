@@ -65,9 +65,17 @@
                                     <td>
                                         <span class="role admin">boss</span>
                                     </td>
+                                    <td></td>
                                     @elseif($person->group_id == 2)
                                     <td>
                                         <span class="role user">admin</span>
+                                    </td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a class="item" data-toggle="tooltip" href="#">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                     @elseif($person->group_id == 0)
                                     <td>
@@ -80,9 +88,7 @@
                                             </a>
                                         </div>
                                     </td>
-                                    @else
-                                        <td></td>
-                                        <td></td>
+
                                     @endif
                                 </tr>
                                 @endforeach

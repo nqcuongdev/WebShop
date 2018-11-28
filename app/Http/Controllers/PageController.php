@@ -140,16 +140,16 @@ class PageController extends Controller
     public function getRegister(){return view('page.register');}
     public function postRegister(Request $req){
         //Validate form
-        $this->validate(
-            ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password'],
-            ['email.required'=>'Enter your email','email.email'=>'Enter the correct email format','email.unique'=>'Email already exists','password.required'=>'Enter correct password'
-            ,'re_password.same'=>'Passwords are not the same','password.min'=>'Password of at least 6 characters']
-        );
-        $rules = array(
-            ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password']
-        );
-        //validate request from form
-        $this->validate($req,$rules);
+        // $this->validate(
+        //     ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password'],
+        //     ['email.required'=>'Enter your email','email.email'=>'Enter the correct email format','email.unique'=>'Email already exists','password.required'=>'Enter correct password'
+        //     ,'re_password.same'=>'Passwords are not the same','password.min'=>'Password of at least 6 characters']
+        // );
+        // $rules = array(
+        //     ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password']
+        // );
+        // //validate request from form
+        // $this->validate($req,$rules);
 
         $user = new Users;
         $user->full_name = $req->fullname;

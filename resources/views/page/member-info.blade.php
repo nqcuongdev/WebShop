@@ -24,7 +24,7 @@
         <div class="site-section-heading pt-3 mb-4">
             <h2 class="text-black">Update your Information</h2>
         </div>
-        <form action="{{route('memberinfomation',Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('postmember-infomation',Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="form-group row">
                 <div class="col-md-12">

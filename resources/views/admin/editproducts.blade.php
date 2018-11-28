@@ -13,7 +13,7 @@
                                 </div>
                                 <hr>
                                 @foreach($product as $items)
-                                <form action="{{route('edit-product',$items->id)}}" enctype="multipart/form-data" method="POST">
+                                <form action="{{route('postedit-product',$items->id)}}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label class="control-label mb-1">Name</label>

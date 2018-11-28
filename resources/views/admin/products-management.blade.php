@@ -8,7 +8,7 @@
                     <h2 class="title-1 m-b-25">List Products</h2>
                     <div class="table-responsive m-b-40">
                         <div class="table-data__tool">
-                            <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="{{route('addproduct')}}"><i class="zmdi zmdi-plus"></i>add item</a>
+                            <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="{{route('getadd-product')}}"><i class="zmdi zmdi-plus"></i>add item</a>
                             <button class="au-btn au-btn-icon au-btn--blue au-btn--small">export excel</button>
                         </div>
                         <table class="table table-borderless table-data3">
@@ -36,7 +36,7 @@
                                         </td>
                                         <td>
                                             <div class="table-data-feature">
-                                                <a class="item" href="{{route('editproduct',$item->id)}}">
+                                                <a class="item" href="{{route('getedit-product',$item->id)}}">
                                                     <i class="zmdi zmdi-edit"></i>
                                                 </a>
                                                 <a class="item" data-toggle="tooltip" href="{{route('delete-product',$item->id)}}">

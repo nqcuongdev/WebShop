@@ -20,7 +20,7 @@
             <ul class="site-menu js-clone-nav d-none d-md-block">
               @if(Auth::check())
                 @if(Auth::user()->group_id == 0)
-                <li><a href="{{route('member-infomation',Auth::user()->id)}}"><span class="icon icon-person"></span></a></li>
+                <li><a href="{{route('getmember-infomation',Auth::user()->id)}}"><span class="icon icon-person"></span></a></li>
                 <li>
                     <a href="{{route('cart')}}" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -34,7 +34,7 @@
                   <li><a href="{{route('logout')}}"><span class="icon icon-exit_to_app"></span></a></li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 @else
-                <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
+                <li><a href="{{route('getlogin')}}"><span class="icon icon-person"></span></a></li>
                 <li>
                   <a href="{{route('cart')}}" class="site-cart">
                     <span class="icon icon-shopping_cart"></span>
@@ -44,7 +44,7 @@
                 <li class="d-inline-block d-md-none ml-md-0"><a href="" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
               @endif
               @else
-              <li><a href="{{route('login')}}"><span class="icon icon-person"></span></a></li>
+              <li><a href="{{route('getlogin')}}"><span class="icon icon-person"></span></a></li>
               <li>
                 <a href="{{route('cart')}}" class="site-cart">
                   <span class="icon icon-shopping_cart"></span>
