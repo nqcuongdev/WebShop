@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{url('shoppers/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{url('shoppers/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('shoppers/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url('vendor - angular/angular-material.min.css')}}">
 
     <link rel="stylesheet" href="{{url('shoppers/css/aos.css')}}">
 
@@ -35,11 +36,11 @@
         }
       }
   </script>
-	<script type="text/javascript" src="{{url('vendor-angular/angular-1.5.min.js')}}"></script>  
-  <script type="text/javascript" src="{{url('vendor-angular/angular-animate.min.js')}}"></script>
-  <script type="text/javascript" src="{{url('vendor-angular/angular-aria.min.js')}}"></script>
- 	<script type="text/javascript" src="{{url('vendor-angular/angular-messages.min.js')}}"></script>
- 	<script type="text/javascript" src="{{url('vendor-angular/angular-material.min.js')}}"></script>  
+	<script type="text/javascript" src="{{url('vendor - angular/angular.min.js')}}"></script>  
+  <script type="text/javascript" src="{{url('vendor - angular/angular-animate.min.js')}}"></script>
+  <script type="text/javascript" src="{{url('vendor - angular/angular-aria.min.js')}}"></script>
+ 	<script type="text/javascript" src="{{url('vendor - angular/angular-messages.min.js')}}"></script>
+  <script type="text/javascript" src="{{url('vendor - angular/angular-material.min.js')}}"></script> 
   <script src="{{url('shoppers/js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{url('shoppers/js/jquery-ui.js')}}"></script>
   <script src="{{url('shoppers/js/popper.min.js')}}"></script>
