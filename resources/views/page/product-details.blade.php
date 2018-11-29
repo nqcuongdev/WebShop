@@ -13,7 +13,7 @@
     <div class="container">
     <div class="row">
         <div class="col-md-6">
-        <img src="{{asset($productDetails -> image)}}" alt="Image" class="img-fluid">
+        <img src="{{url($productDetails -> image)}}" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6">
         <h2 class="text-black">{{ $productDetails -> name }}</h2>
@@ -75,7 +75,7 @@
                 <div class="item">
                     <div class="block-4 text-center">
                         <figure class="block-4-image">
-                            <img src="{{asset($item -> image)}}" alt="Image placeholder" class="img-fluid">
+                            <img src="{{url($item -> image)}}" alt="Image placeholder" class="img-fluid">
                         </figure>
                         <div class="block-4-text p-4">
                             <h3><a href="{{ route('product',$item -> id)}}">{{ $item -> name }}</a></h3>
