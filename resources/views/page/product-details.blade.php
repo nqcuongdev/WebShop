@@ -26,11 +26,12 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                     </div>
-                    <input type="text" class="form-control text-center" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                    <div class="input-group-append">
+                        <input type="text" name="quantity" class="form-control text-center" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <div class="input-group-append">
                         <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                     </div>
             </div>
+            <h1 class="test"></h1>
             <div class="d-flex mr-3 mb-3">
                 @if ($productDetails -> id_type == 1 || $productDetails -> id_type == 2 || $productDetails -> id_type == 4)
                     <select class="form-control text-center">
@@ -53,8 +54,16 @@
         </div>
 
         </div>
-        <p><a href="{{ route('addtocart',$productDetails -> id) }}" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
-
+        <a href="{{route('addtocart',$productDetails->id)}}"><button id="btn-cart" class="buy-now btn btn-sm btn-primary">Add To Cart</button></a>
+        <script>
+            $('#btn-cart').click(function(){
+                swal({
+                    title: "Good job!",
+                    icon: "success",
+                    timer: 500,
+                });
+            });
+        </script>
         </div>
     </div>
     </div>

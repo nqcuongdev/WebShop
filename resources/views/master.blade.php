@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{url('shoppers/css/aos.css')}}">
 
     <link rel="stylesheet" href="{{url('shoppers/css/style.css')}}">
+    <script src="{{url('shoppers/js/jquery-3.3.1.min.js')}}"></script>
     
   </head>
   <body>
@@ -35,14 +36,13 @@
         }
       }
   </script>
-  <script src="{{url('shoppers/js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{url('shoppers/js/jquery-ui.js')}}"></script>
   <script src="{{url('shoppers/js/popper.min.js')}}"></script>
   <script src="{{url('shoppers/js/bootstrap.min.js')}}"></script>
   <script src="{{url('shoppers/js/owl.carousel.min.js')}}"></script>
   <script src="{{url('shoppers/js/jquery.magnific-popup.min.js')}}"></script>
   <script src="{{url('shoppers/js/aos.js')}}"></script>
-  <script src="{{url('shoppers/js/sweetalert.min')}}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script src="{{url('shoppers/js/main.js')}}"></script>
     

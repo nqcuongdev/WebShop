@@ -80,7 +80,6 @@ class PageController extends Controller
         return view('page.cart',['cart'=>Session::get('cart'), 'products_cart' => $cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);     
     }
     public function getAddtoCart(Request $req,$id){
-        //Find products have id = $id
         $product = Products::find($id);
         //Check cart Session
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -89,7 +88,7 @@ class PageController extends Controller
         $cart->add($product,$id);
         //Put cart into session
         $req->session()->put('cart',$cart);
-        return redirect()->back();
+        return redirect()->route('products');
     }
     public function reduceOne($id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
