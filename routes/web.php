@@ -31,6 +31,8 @@ Route::post('register',['as' => 'postregister','uses' => 'PageController@postReg
 Route::post('search',['as' => 'search','uses' => 'PageController@postSearch']);
 Route::get('member-infomation/{id}',['as' => 'getmember-infomation','uses' => 'PageController@getInformation']);
 Route::post('member-infomation/{id}',['as' => 'postmember-infomation','uses' => 'PageController@postInformation']);
+
+// Routes of Admin Page
 Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function (){
    Route::get('/dashboard',['as' => 'dashboard','uses' => 'AdminController@getIndex']);
    Route::get('/products-management',['as' => 'products-management','uses' => 'AdminController@getProductsManagement']);
