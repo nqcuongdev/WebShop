@@ -25,8 +25,8 @@
         <div class="site-section-heading pt-3 mb-4">
             <h2 class="text-black">How We Started</h2>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius repellat, dicta at laboriosam, nemo exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus quos sequi hic fugiat asperiores illum. Atque, in, fuga excepturi corrupti error corporis aliquam unde nostrum quas.</p>
-        <p>Accusantium dolor ratione maiores est deleniti nihil? Dignissimos est, sunt nulla illum autem in, quibusdam cumque recusandae, laudantium minima repellendus.</p>
+        <p>We always set tough and challenging standards to set ourselves the best quality even fastidious customers. In addition, besides the quality products and the best service, we always focus on the treatment for customers, the store relationships and customers always exist side by side after the customer has Purchase.</p>
+        <p>For us, customers are both close friends and reliable partners.</p>
         
         </div>
     </div>

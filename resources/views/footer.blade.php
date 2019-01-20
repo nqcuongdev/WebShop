@@ -22,9 +22,9 @@
             </div>
             <div class="col-md-6 col-lg-4">
             <ul class="list-unstyled">
-                <li><a href="">Free Shiping</a></li>
-                <li><a href="">Free Returns</a></li>
-                <li><a href="">Customer Support</a></li>
+                <li><a href="#">Free Shiping</a></li>
+                <li><a href="#">Free Returns</a></li>
+                <li><a href="#">Customer Support</a></li>
             </ul>
             </div>
         </div>
@@ -44,19 +44,9 @@
             <h3 class="footer-heading mb-4">Contact Info</h3>
             <ul class="list-unstyled">
             <li class="address">Nam Ky Khoi Nghia Street, Ngu Hanh Son District, Da Nang City</li>
-            <li class="phone"><a href="tel://23923929210">+XXXXXXXXX</a></li>
+            <li class="phone"><a href="#">+(84) 337 317 788</a></li>
             <li class="email">nqcuong.17it3@sict.udn.vn</li>
             </ul>
-        </div>
-
-        <div class="block-7">
-            <form action="" method="post">
-            <label for="email_subscribe" class="footer-heading">Subscribe</label>
-            <div class="form-group">
-                <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                <input type="submit" class="btn btn-sm btn-primary" value="Send">
-            </div>
-            </form>
         </div>
         </div>
     </div>

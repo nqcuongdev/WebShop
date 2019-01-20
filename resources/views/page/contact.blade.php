@@ -16,8 +16,13 @@
         </div>
         <div class="col-md-7">
 
-        <form action="#" method="post">
-            
+        <form action="{{ route('post.contactMail') }}" method="post">
+            {{ csrf_field() }}
+            @if(Session::has("success"))
+                <div class="alert alert-success">
+                    Thank for your contact !!!
+                </div>
+            @endif
             <div class="p-3 p-lg-5 border">
             <div class="form-group row">
                 <div class="col-md-12">
@@ -28,7 +33,7 @@
             <div class="form-group row">
                 <div class="col-md-12">
                 <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
+                <input type="email" class="form-control" id="c_email" name="c_email">
                 </div>
             </div>
             <div class="form-group row">

@@ -13,7 +13,7 @@
     <div class="row mb-5">
         <div class="col-md-12">
         <div class="border p-4 rounded" role="alert">
-            Returning customer? <a href="{{route('login')}}">Click here</a> to login
+            Returning customer? <a href="{{route('getlogin')}}">Click here</a> to login
         </div>
         </div>
     </div>
