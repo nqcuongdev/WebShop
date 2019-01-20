@@ -9,7 +9,7 @@
                     <div class="table-responsive m-b-40">
                         <div class="table-data__tool">
                             <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="{{route('getadd-product')}}"><i class="zmdi zmdi-plus"></i>add item</a>
-                            <button class="au-btn au-btn-icon au-btn--blue au-btn--small">export excel</button>
+                            <a class="au-btn au-btn-icon au-btn--blue au-btn--small" href="{{ route('get.exportProductsList') }}">export excel</a>
                         </div>
                         <table class="table table-borderless table-data3">
                             <thead>

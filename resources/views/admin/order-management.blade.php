@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <h2 class="title-1 m-b-25">List Products</h2>
                         <div class="table-data__tool">
-                            <button class="au-btn au-btn-icon au-btn--blue au-btn--small">export excel</button>
+                            <a class="au-btn au-btn-icon au-btn--blue au-btn--small" href="{{ route('get.exportOrdersList') }}">export excel</a>
                         </div>
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">

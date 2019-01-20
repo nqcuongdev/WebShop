@@ -15,10 +15,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function getIndex(){
-        $list_order = Bill::join('bill_details','bills.id','=','bill_details.id_bill')
-                    ->join('products','bill_details.id_product','=','products.id')
-                    ->orderby('bills.id','asc')
-                    ->get();
+        $list_order = Bill::orderby('id','asc')->get();
         $product_order = BillDetails::all();
         $product_type = TypeProduct::all();
         $customer = Customer::all();
@@ -100,15 +97,21 @@ class AdminController extends Controller
         $user = User::all();
         return view('admin.member-manager',compact('customer','user'));
     }
+
     public function getDeleteMember($id){
         $customer = Customer::find($id);
-        if($customer->delete()){
-            return redirect('admin/member-management');
+        if(Auth::user()->group_id == 1){
+            $customer->delete();
         }
+        return redirect()->back();
     }
-    //This function can't change permisson of user is admin or user
-    public function postChangePermisson(Request $req, $id){
+
+    public function getDeleteUser($id){
         $user = User::find($id);
+        if(Auth::user()->group_id == 1){
+            $user->delete();
+        }
+        return redirect()->back();
     }
 
     public function getIndexManagement(){

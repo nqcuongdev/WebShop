@@ -82,10 +82,7 @@
                                     <tr>
                                         <th>date</th>
                                         <th>order ID</th>
-                                        <th>name</th>
-                                        <th class="text-right">price</th>
-                                        <th class="text-right">quantity</th>
-                                        <th class="text-right">total</th>
+                                        <th>total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -93,10 +90,7 @@
                                     <tr>
                                         <td>{{$item->date_order}}</td>
                                         <td>{{$item->id}}</td>
-                                        <td>{{$item->name}}</td>
-                                        <td class="text-right">${{$item->unit_price}}</td>
-                                        <td class="text-right">{{$item->quantity}}</td>
-                                        <td class="text-right">${{$item->total}}</td>
+                                        <td>${{$item->total}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

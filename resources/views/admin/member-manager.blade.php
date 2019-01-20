@@ -63,7 +63,7 @@
                                     <td class="text-center">{{$person->phone_number}}</td>
                                     @if($person->group_id == 1)
                                     <td>
-                                        <span class="role admin">boss</span>
+                                        <span class="role admin">supperadmin</span>
                                     </td>
                                     <td></td>
                                     @elseif($person->group_id == 2)
@@ -72,8 +72,8 @@
                                     </td>
                                     <td>
                                         <div class="table-data-feature">
-                                            <a class="item" data-toggle="tooltip" href="#">
-                                                <i class="zmdi zmdi-edit"></i>
+                                            <a class="item" data-toggle="tooltip" href="{{ route('get.deleteUser',$person->id) }}">
+                                                <i class="zmdi zmdi-delete"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -83,8 +83,8 @@
                                     </td>
                                     <td>
                                         <div class="table-data-feature">
-                                            <a class="item" data-toggle="tooltip" href="#">
-                                                <i class="zmdi zmdi-edit"></i>
+                                            <a class="item" data-toggle="tooltip" href="{{ route('get.deleteUser',$person->id) }}">
+                                                <i class="zmdi zmdi-delete"></i>
                                             </a>
                                         </div>
                                     </td>

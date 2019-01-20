@@ -55,8 +55,12 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function (){
 
    Route::get('member-management',['as' => 'member-management','uses' => 'AdminController@getMemberManagement']);
    Route::get('delete-member/{id}',['as' => 'delete-member','uses' => 'AdminController@getDeleteMember']);
+   Route::get('delete-user/{id}',['as' => 'get.deleteUser','uses' => 'AdminController@getDeleteUser']);
 
    Route::get('index-management',['as' => 'get.indexManagement','uses' => 'AdminController@getIndexManagement']);
    Route::get('edit-index-page',['as' => 'get.editIndexManagement','uses' => 'AdminController@getEditIndex']);
    Route::post('edit-index-page',['as' => 'post.editIndexManagement','uses' => 'AdminController@postEditIndex']);
+
+   Route::get('export-products',['as' => 'get.exportProductsList','uses' => 'ExportExcelController@exportProducts']);
+   Route::get('export-orders',['as' => 'get.exportOrdersList','uses' => 'ExportExcelController@exportOrder']);
 });
