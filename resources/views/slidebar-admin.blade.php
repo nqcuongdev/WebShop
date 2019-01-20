@@ -29,6 +29,9 @@
                 <li>
                     <a href="{{route('member-management')}}"><i class="fas fa-users"></i>Member Management</a>
                 </li>
+                <li>
+                    <a href="{{route('get.indexManagement')}}"><i class="fas fa-indent"></i>Index Page</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -56,6 +59,9 @@
                 </li>
                 <li>
                     <a href="{{route('member-management')}}"><i class="fas fa-users"></i>Member Management</a>
+                </li>
+                <li>
+                    <a href="{{route('get.indexManagement')}}"><i class="fas fa-indent"></i>Index Page</a>
                 </li>
             </ul>
         </nav>

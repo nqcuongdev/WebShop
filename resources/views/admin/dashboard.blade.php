@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="text">
                                         <h2>{{count($list_order)}}</h2>
-                                        <span>bill this week</span>
+                                        <span>bill</span>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                         <i class="zmdi zmdi-money"></i>
                                     </div>
                                     <div class="text">
-                                        <h2>$1,060,386</h2>
+                                        <h2>${{ $list_order->sum('total') }}</h2>
                                         <span>total earnings</span>
                                     </div>
                                 </div>

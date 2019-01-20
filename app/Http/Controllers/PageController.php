@@ -24,22 +24,26 @@ class PageController extends Controller
         $productFeature = Products::where('feature_id',1)->get();
         return view('page.index',compact('bannerindex','productFeature'));
     }
+
     public function getProducts(){
         //Pagination
         $product = Products::paginate(6);
         $typeproduct = TypeProduct::all();
         return view('page.products',compact('product','typeproduct'));
     }
+
     public function getProductsByID($id_type){
         //Fillter product by id
         $product = Products::where('id_type',$id_type)->paginate(6);
         $typeproduct = TypeProduct::all();
         return view('page.products',compact('product','typeproduct'));
     }
+
     public function getCheckOut(){
         $cart = Session::get('cart');
         return view('page.checkout',['cart'=>Session::get('cart'), 'products_cart' => $cart->items]);
     }
+
     public function postCheckOut(Request $req){
         $cart = Session::get('cart');
 
@@ -68,11 +72,14 @@ class PageController extends Controller
             $bill_details->save();
         }
         Session::forget('cart');
-        return redirect('\thanks');
+        return redirect('thanks');
         
     }
+
     public function getAbout(){return view('page.about');}
+
     public function getContact(){return view('page.contact');}
+    // Cart Zone 
     public function cart(){
         if(!Session::has('cart')) return view('page.cart');
         $oldCart = Session::get('cart');
@@ -88,7 +95,7 @@ class PageController extends Controller
         $cart->add($product,$id);
         //Put cart into session
         $req->session()->put('cart',$cart);
-        return redirect()->route('products');
+        return redirect()->back();
     }
     public function reduceOne($id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -115,14 +122,19 @@ class PageController extends Controller
         }
         return redirect()->back();
     }
+    // End cart zone
+
     public function getProductsDetails(Request $req){
         //Receive request and query sql 
         $productDetails = Products::where('id',$req->id)->first();
         $productFeature = Products::where('feature_id',1)->get();
         return view('page.product-details',compact('productDetails','productFeature'));
     }
+
     public function getThanks(){return view('page.thanks');}
+
     public function getLogIn(){return view('page.login');}
+
     public function postLogin(Request $req){
         $credentials = array('email'=>$req->email,'password'=>$req->password);
         if(Auth::attempt($credentials)){
@@ -137,18 +149,34 @@ class PageController extends Controller
         return redirect('/');       
     }
     public function getRegister(){return view('page.register');}
+
     public function postRegister(Request $req){
-        //Validate form
-        // $this->validate(
-        //     ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password'],
-        //     ['email.required'=>'Enter your email','email.email'=>'Enter the correct email format','email.unique'=>'Email already exists','password.required'=>'Enter correct password'
-        //     ,'re_password.same'=>'Passwords are not the same','password.min'=>'Password of at least 6 characters']
-        // );
-        // $rules = array(
-        //     ['fullname'=>'required','email'=>'required|email|unique:user,email','password'=>'required|min:6|max:20','re_password'=>'required|same:password']
-        // );
-        // //validate request from form
-        // $this->validate($req,$rules);
+        $rules = array(
+            [
+            'fullname'=>'required',
+            'email'=>'required|email|unique:user,email',
+            'password'=>'required|min:6|max:20',
+            're_password'=>'required|same:password'
+            ]
+        );
+        $message = array(
+            [
+                'fullname'=>'required',
+                'email'=>'required|email|unique:user,email',
+                'password'=>'required|min:6|max:20',
+                're_password'=>'required|same:password'
+            ],
+            [
+                'email.required'=>'Enter your email',
+                'email.email'=>'Enter the correct email format',
+                'email.unique'=>'Email already exists',
+                'password.required'=>'Enter correct password',
+                're_password.same'=>'Passwords are not the same',
+                'password.min'=>'Password of at least 6 characters'
+            ]
+        );
+        //validate request from form after insert
+        $validator = $req->validate($rules);
 
         $user = new Users;
         $user->full_name = $req->fullname;
@@ -161,16 +189,19 @@ class PageController extends Controller
         $user->save();
         return redirect('login');
     }
+
     public function postSearch(Request $req){
         $product = Products::where('name','like','%'.$req->key.'%')
                             ->orWhere('unit_price',$req->key)
                             ->paginate(4);
         return view('page.search',compact('product'));
     }
+
     public function getInformation($id){
         $user = Users::find($id)->first;
         return view('page.member-info',compact('user'));
     }
+
     public function postInformation(Request $req, $id){
         //Need request
         $user = Users::find($id);

@@ -130,12 +130,11 @@
     </div>
     <div class="row align-items-center">
         <div class="col-md-12 col-lg-7 mb-5">
-        <a href="#"><img src="{{asset('shoppers/images/blog_1.jpg')}}" alt="Image placeholder" class="img-fluid rounded"></a>
+        <a href="{{ route('products') }}"><img src="{{asset('shoppers/images/blog_1.jpg')}}" alt="Image placeholder" class="img-fluid rounded"></a>
         </div>
         <div class="col-md-12 col-lg-5 text-center pl-md-5">
-        <h2><a href="#">50% less in all items</a></h2>
-        <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
+        <h2><a href="{{ route('products') }}">50% less in all items</a></h2>
+        <p>At the end of the year, come out of my dear desk and stand up and buy nice clothes !!!</p>
         <p><a href="{{ route('products') }}" class="btn btn-primary btn-sm">Shop Now</a></p>
         </div>
     </div>

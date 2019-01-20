@@ -8,6 +8,7 @@ use App\BillDetails;
 use App\Customer;
 use App\Products;
 use App\User;
+use App\BannerIndex;
 
 use Illuminate\Http\Request;
 
@@ -108,5 +109,47 @@ class AdminController extends Controller
     //This function can't change permisson of user is admin or user
     public function postChangePermisson(Request $req, $id){
         $user = User::find($id);
+    }
+
+    public function getIndexManagement(){
+        $bannerIndex = BannerIndex::all();
+        return view('admin.index-management',compact('bannerIndex'));
+    }
+
+    public function getEditIndex(){
+        $bannerIndex = BannerIndex::all();
+        return view('admin.edit-indexpage',compact('bannerIndex'));
+    }
+
+    public function postEditIndex(Request $request){
+        $bannerIndex = BannerIndex::find($request->id);
+        $bannerIndex->id = $bannerIndex->id;
+
+        if(isset($request->typotext))
+            $bannerIndex->typotext = $request->typotext;
+        else
+            $bannerIndex->typotext = $bannerIndex->typotext;
+        
+        if(isset($request->smalltext))
+            $bannerIndex->smalltext = $request->smalltext;
+        else
+            $bannerIndex->smalltext = $bannerIndex->smalltext;
+
+        if(isset($request->link))
+            $bannerIndex->link = $request->link;
+        else
+            $bannerIndex->link = $bannerIndex->link;
+
+        //Proccess upload file
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $image->move(public_path('/shoppers/images'),$image->getClientOriginalName());
+            $link = 'shoppers/images/'.$image->getClientOriginalName();
+            $bannerIndex->image = $link;
+        }else{
+            $bannerIndex->image = $bannerIndex->image;
+        }
+        $bannerIndex->save();
+        return redirect()->back();
     }
 }

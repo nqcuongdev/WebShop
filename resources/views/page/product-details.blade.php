@@ -55,15 +55,6 @@
 
         </div>
         <a href="{{route('addtocart',$productDetails->id)}}"><button id="btn-cart" class="buy-now btn btn-sm btn-primary">Add To Cart</button></a>
-        <script>
-            $('#btn-cart').click(function(){
-                swal({
-                    title: "Good job!",
-                    icon: "success",
-                    timer: 500,
-                });
-            });
-        </script>
         </div>
     </div>
     </div>

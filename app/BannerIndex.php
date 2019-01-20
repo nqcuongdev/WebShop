@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BannerIndex extends Model
 {
-    protected $table = "bannerindex"; 
+    protected $table = "bannerindex";
+    public $timestamps = false;
 }

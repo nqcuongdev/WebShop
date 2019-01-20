@@ -8,10 +8,6 @@
                         <div class="card" style="max-width:650px; margin: 0 auto;">
                             <div class="card-header">Edit Product</div>
                             <div class="card-body">
-                                <div class="card-title">
-                                    <h3 class="text-center title-2">Pay Invoice</h3>
-                                </div>
-                                <hr>
                                 @foreach($product as $items)
                                 <form action="{{route('postedit-product',$items->id)}}" enctype="multipart/form-data" method="POST">
                                     {{ csrf_field() }}

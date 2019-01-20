@@ -25,7 +25,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                         <a class="dropdown-item" href="{{ route('products') }}">All</a>
                     @foreach ($typeproduct as $type)
-                        <a class="dropdown-item" href="{{ route('product',$type -> id) }}">{{ $type -> name_type }}</a>
+                        <a class="dropdown-item" href="{{ route('product',$type -> id) }}">{{ $type->name_type }}</a>
                     @endforeach
 
                 </div>
@@ -81,52 +81,12 @@
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
             <ul class="list-unstyled mb-0">
                 @foreach ($typeproduct as $type)
-            <li class="mb-1"><a href="" class="d-flex"><span>{{ $type -> name}}</span><span class="text-black ml-auto"></span></a></li>
+            <li class="mb-1"><a href="" class="d-flex"><span>{{ $type -> name_type}}</span><span class="text-black ml-auto"></span></a></li>
                 @endforeach
             
             </ul>
         </div>
 
-        <div class="border p-4 rounded mb-4">
-            <div class="mb-4">
-            <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-            <div id="slider-range" class="border-primary"></div>
-            <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-            </div>
-
-            <div class="mb-4">
-            <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-            <label for="s_sm" class="d-flex">
-                <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small</span>
-            </label>
-            <label for="s_md" class="d-flex">
-                <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium</span>
-            </label>
-            <label for="s_lg" class="d-flex">
-                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large</span>
-            </label>
-            <label for="s_lg" class="d-flex">
-                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Extra Large</span>
-            </label>
-            </div>
-
-            <div class="mb-4">
-            <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-            <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red</span>
-            </a>
-            <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green</span>
-            </a>
-            <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue</span>
-            </a>
-            <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple</span>
-            </a>
-            </div>
-
-        </div>
         </div>
     </div>
 
