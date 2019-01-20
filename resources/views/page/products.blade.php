@@ -70,7 +70,7 @@
             <div class="col-md-12 text-center">
             <div class="site-block-27">
                 {{$product -> links()}}
-                {{-- Tự phân trang từ hàm paginate --}}
+                {{-- Auto pagination make by pagiate of SQL --}}
             </div>
             </div>
         </div>
@@ -82,6 +82,7 @@
             <ul class="list-unstyled mb-0">
                 @foreach ($typeproduct as $type)
             <li class="mb-1"><a href="" class="d-flex"><span>{{ $type -> name_type}}</span><span class="text-black ml-auto"></span></a></li>
+            <li class="mb-1"><a href="{{ route('product',$type -> id) }}" class="d-flex"><span>{{ $type -> name_type}}</span><span class="text-black ml-auto"></span></a></li>
                 @endforeach
             
             </ul>
